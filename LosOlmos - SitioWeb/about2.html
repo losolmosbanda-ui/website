@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - Los Olmos</title>
+  <style>
+
+    @font-face {
+      font-family: "quest";
+      src: url("fonts/quest.otf") format("opentype");
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      text-align: center;
+      font-family: "home", sans-serif;
+      line-height: 1.4;
+    }
+
+    body.about-page{
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    body.about-page { background-image: url("images/about.png"); font-family: "quest", sans-serif; }
+
+    .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding-inline: 1rem;
+    }
+
+    .image-container {
+      position: relative;
+      width: 90%;
+      max-width: 400px;
+      aspect-ratio: 2 / 3; /* keeps proportions */
+      flex-shrink: 0;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .main-button {
+      padding: 0.6rem 1.2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: transparent;
+      color: #000;
+      transition: all 0.3s ease;
+      font-family: "quest", sans-serif;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 0.5rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .text-overlay,
+    .text-overlay2,
+    .text-overlay-bullets{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: "quest", sans-serif;
+      letter-spacing: 1px;
+      background: transparent;
+      color: rgb(38, 7, 7);
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .text-overlay {
+      top: 18%;
+      font-size: clamp(1.2rem, 4vw, 2.5rem);
+    }
+
+    .text-overlay2 {
+      top: 65%;
+      font-size: clamp(0.9rem, 3vw, 1.2rem);
+    }
+
+    .text-overlay-bullets {
+      top: 10%;
+      font-size: clamp(1.2rem, 4vw, 2.5rem);
+    }
+
+    .popup {
+      position: fixed;
+      bottom: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: bottom 0.5s ease;
+    }
+    .popup img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+    }
+    .popup.show { bottom: 35%; }
+    .hidden { display: none; }
+
+    .square {
+      width: 300px;
+      height: 300px;
+      background: #333;
+      border: 4px solid #000;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .square img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #firefly-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .arrow-button2 {
+      position: absolute;
+      display: inline-block;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .arrow-button2 {
+      right: 20px;
+      top: 25%;
+      transform: translateY(-100%);
+    }
+
+    .arrow-button2 img {
+      height: 200px;
+      filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    }
+
+    .arrow-button2:hover { transform: translateY(-90%); }
+
+
+    .custom-bullets {
+      list-style: none;
+      padding-left: 0;
+      text-align: left;
+    }
+
+    .custom-bullets li {
+      position: relative;
+      padding-left: 3rem;
+      margin-bottom: 0.6rem;
+      font-size: 1rem;
+    }
+
+    .custom-bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background: url("images/bullet3.png") no-repeat center/contain;
+      transition: filter 0.3s ease;
+    }
+
+    .custom-bullets li:hover::before {
+      filter: brightness(0) saturate(100%) invert(77%) sepia(77%) saturate(1265%) hue-rotate(5deg) brightness(104%) contrast(101%);
+    }
+
+    .show .main-button { display: none; }
+
+    footer {
+      background-color: #eee;
+      padding: 0.75rem;
+      font-size: 0.9em;
+    }
+
+    .custom-bullets a:hover {
+      color: #ffd700;
+    }
+
+
+
+  </style>
+</head>
+
+<body class="about-page">
+    <div class="wrapper">
+        <div class="image-container">
+            <img src="images/quest.png" alt="" aria-hidden="true" />
+        </div>
+    </div>
+    <div id="popup" class="popup show" role="dialog" aria-modal="true">
+        <div class="square" id="tv">
+           <img src="images/TV.gif" alt="Pantalla estática de TV" />
+            <nav class="text-overlay-bullets">
+                <ul class="custom-bullets">
+                    <li><a href="nous copy.html">Bio</a></li>
+                    <li><a href="tere copy.html">Eventos</a></li>
+                    <li><a href="suen copy.html">Merch</a></li>
+                    <li><a href="voyu copy.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+  <a href="unknown.html" class="arrow-button2" aria-label="Ir a la página siguiente">
+    <img src="images/light.png" alt="" aria-hidden="true" />
+  </a>
+
+  <canvas id="firefly-canvas" aria-hidden="true"></canvas>
+
+  <footer>
+    &copy; 2025 Los Olmos LLC. Todos los derechos reservados.
+  </footer>
+
+  <script src="fireflies.js" defer></script>
+</body>
+</html>
