@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto - Los Olmos</title>
+  <style>
+
+    @font-face {
+      font-family: "quest";
+      src: url("fonts/quest.otf") format("opentype");
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      text-align: center;
+      font-family: "home", sans-serif;
+      line-height: 1.4;
+    }
+
+    body.voyu-page {
+      min-height: 100vh;
+      background-image: url("images/voyu.JPG");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed; 
+      font-family: "quest", sans-serif;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 0.5rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+
+    footer {
+      background-color: #eee;
+      padding: 0.75rem;
+      font-size: 0.9em;
+    }
+
+    .image-container2 {
+      position: relative;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .image-container2 img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      display: block;
+    }
+
+
+    .text-overlay3 {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: "quest", sans-serif;
+      letter-spacing: 1px;
+      background: transparent;
+      color: rgb(38, 7, 7);
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .text-overlay3 {
+      top: 10%;
+      font-size: clamp(1.2rem, 4vw, 2.5rem);
+    }
+
+     .social-links a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 0.6rem;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #ffd700;
+    }
+
+    .menu-link {
+      display: inline-block;
+      margin-top: 2rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      background: rgba(0,0,0,0.4);
+      padding: 0.4rem 1rem;
+      border-radius: 8px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      transition: background 0.3s ease;
+    }
+
+    .menu-link:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+
+
+  </style>
+</head>
+<body class="voyu-page">
+
+  <div class="image-container2">
+    <img src="images/ojo.png" alt="Imagen de contacto" />
+    <nav class="social-links text-overlay3">
+      <p><a href="https://www.instagram.com/los_olmos/?hl=en">Instagram</a></p>
+      <p><a href="https://www.youtube.com/channel/UCSV6dPG5g7jK4lXYU6_Uypw">YouTube</a></p>
+      <p><a href="https://open.spotify.com/artist/3FQw0pllhsryVxt2jkW9FV">Spotify</a></p>
+      <p><a href="https://soundcloud.com/losolmos">Soundcloud</a></p>
+      <p><a href="mailto:losolmosbanda@gmail.com">Email</a></p>
+      <p><a href="about2.html" class="menu-link">Menu principal</a></p>
+    </nav>
+    
+  </div>
+
+  <footer>
+    &copy; 2025 Los Olmos LLC. Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>
