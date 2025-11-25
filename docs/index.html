@@ -24,12 +24,21 @@
         }
 
         body.home-page {
+            background-image: url("images/home.png");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
 
-        body.home-page { background-image: url("images/home.png"); }
+        @media (min-width: 768px) {
+            body.home-page {
+                background-attachment: fixed;
+            }
+        }
+
+        .page {
+            min-height: 100%;
+        }
 
         .container {
             display: flex;
