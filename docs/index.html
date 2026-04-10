@@ -3,132 +3,232 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>losolmos sitio web-home</title>
+  <title>Los Olmos - Home</title>
   <style>
-        @font-face {
-            font-family: "home";
-            src: url("fonts/font.ttf") format("truetype");
-        }
 
-        html, body {
-            min-height: 100%;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    @font-face {
+      font-family: "quest";
+      src: url("fonts/quest.otf") format("opentype");
+    }
 
-        body {
-            text-align: center;
-            font-family: "home", sans-serif;
-            line-height: 1.4;
-        }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body.home-page {
-            background-image: url("images/home.png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+    body {
+      text-align: center;
+      font-family: "home", sans-serif;
+      line-height: 1.4;
+    }
 
-        @media (min-width: 768px) {
-            body.home-page {
-                background-attachment: fixed;
-            }
-        }
+    body.about-page{
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
 
-        .page {
-            min-height: 100%;
-        }
+    body.about-page { background-image: url("images/TV.gif"); font-family: "quest", sans-serif; }
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            min-height: 100dvh;
-        }
+    .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding-inline: 1rem;
+      background-image: url("images/tv.png");
+    }
 
-        .page-title {
-            font-size: clamp(4rem, 16vw, 20rem);
-            margin-top: 15vh;
-            font-family: "home", sans-serif;
-            transform: rotate(-20deg); 
-            display: inline-block; 
-        }
+    .image-container {
+      position: relative;
+      width: 90%;
+      max-width: 400px;
+      aspect-ratio: 2 / 3; /* keeps proportions */
+      flex-shrink: 0;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .main-button {
+      font-family: quest, sans-serif;
+      display: block;
+      margin-top: 2rem;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      background: #ffd90050;
+      padding: 0.4rem 1rem;
+      border-radius: 8px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      transition: background 0.3s ease;
+    }
+
+    .main-button:hover {
+      color: #fff;
+      background: #000000c3;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 0.5rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .text-overlay,
+    .text-overlay2,
+    .text-overlay-bullets{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: "quest", sans-serif;
+      letter-spacing: 1px;
+      background: transparent;
+      color: rgb(38, 7, 7);
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .text-overlay {
+      top: 18%;
+      font-size: clamp(1.2rem, 4vw, 2.5rem);
+    }
+
+    .text-overlay2 {
+      top: 65%;
+      font-size: clamp(0.9rem, 3vw, 1.2rem);
+    }
+
+    .text-overlay-bullets {
+      top: 10%;
+      font-size: clamp(1.2rem, 4vw, 2.5rem);
+    }
+
+    .popup {
+      position: fixed;
+      bottom: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: bottom 0.5s ease;
+    }
+    .popup img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+    }
+    .popup.show { bottom: 35%; }
+    .hidden { display: none; }
+
+    .square {
+      width: 300px;
+      height: 300px;
+      background: #333;
+      border: 4px solid #000;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .square img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
 
-        .hero {
-            flex: 1;
-            height: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start; 
-            gap: 0.5rem; 
-            padding-top: 25vh; 
-        }
+    .arrow-button2 {
+      position: absolute;
+      display: inline-block;
+      cursor: pointer;
+      z-index: 2;
+    }
 
-        .glow-ring {
-            position: relative;
-            width: 180px;
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .arrow-button2 {
+      right: 20px;
+      top: 25%;
+      transform: translateY(-100%);
+    }
 
-        .glow-ring::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 3%; 
-            background: conic-gradient(red, orange, yellow, lime, red);
-            animation: spinGlow 4s linear infinite;
-            filter: blur(10px);
-            z-index: 1;
-        }
+    .arrow-button2 img {
+      height: 200px;
+      filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    }
 
-        .glow-ring img {
-            width: 250px;
-            height: auto;
-            position: relative;
-            z-index: 2;
-        }
+    .arrow-button2:hover { transform: translateY(-90%); }
 
-        @keyframes spinGlow {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-        }
 
-        footer {
-            text-align: center;
-            padding: 1rem;
-            color: white;
-            font-size: 0.9rem;
-            background: rgba(0, 0, 0, 0.4);
-            margin-top: auto;
-        }
+    .custom-bullets {
+      list-style: none;
+      padding-left: 0;
+      text-align: left;
+    }
 
-    </style>
+    .custom-bullets li {
+      position: relative;
+      padding-left: 3rem;
+      margin-bottom: 0.6rem;
+      font-size: 1rem;
+    }
 
+    .custom-bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background: url("images/bullet3.png") no-repeat center/contain;
+      transition: filter 0.3s ease;
+    }
+
+    .custom-bullets li:hover::before {
+      filter: brightness(0) saturate(100%) invert(77%) sepia(77%) saturate(1265%) hue-rotate(5deg) brightness(104%) contrast(101%);
+    }
+
+    .show .main-button { display: none; }
+
+    .custom-bullets a:hover {
+      color: #ffd700;
+    }
+
+    footer {
+      background-color: #eee;
+      padding: 0.75rem;
+      font-size: 0.9em;
+    }
+
+
+
+  </style>
 </head>
 
-<body class="home-page">
-    <div class="page">
-        <div class="container">
-            <div class="hero">
-                <a href="about.html" class="arrow-button" aria-label="Go to next page">
-                    <div class="glow-ring">
-                        <img src="images/arrow.png" alt="Next Page Arrow" />
-                    </div>
-                </a>
-                <h1 class="page-title">LOS OLMOS</h1>
-            </div>
-            
-            <footer>
-                &copy; 2025 Los Olmos LLC. Todos los derechos reservados.
-            </footer>
-        </div>
+<body class="about-page">
+  <div class="wrapper">
+    <div class="image-container">
+      <img src="images/quest.png" />
+      <div class="text-overlay">
+        Los Olmos no es una banda, es una experiencia
+      </div>
+
+      <nav class="text-overlay2" id="menu">
+        <button class="main-button">Aceptar</button>
+      </nav>
     </div>
+  </div>
+
+
+
+  <footer>
+    &copy; 2025 Los Olmos LLC. Todos los derechos reservados.
+  </footer>
 
 </body>
 </html>
