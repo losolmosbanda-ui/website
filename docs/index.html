@@ -6,225 +6,142 @@
   <title>Los Olmos - Home</title>
   <style>
 
-    @font-face {
-      font-family: "font";
-      src: url("fonts/font.ttf") format("opentype");
-    }
-
     html, body {
       height: 100%;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+    }
+
+    @font-face {
+      font-family: "home";
+      src: url("fonts/home.ttf") format("opentype");
     }
 
     body {
-      text-align: center;
       font-family: "home", sans-serif;
-      line-height: 1.4;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      background-color: #000;
     }
 
-    body.about-page{
+    body.home-page{
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      font-family: "font", sans-serif;
-      background-image: url("tv.png");
-    }
-
-    .wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding-inline: 1rem;
+      background-image: url("images/TV.gif");
+      background-attachment: fixed;
     }
 
     .image-container {
       position: relative;
       width: 100%;
-      height: 100%;
       flex-shrink: 0;
+      overflow: hidden;
     }
 
     .image-container img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    .main-button {
-      font-family: font, sans-serif;
       display: block;
-      margin-top: 2rem;
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1rem;
-      background: #ffd90050;
-      padding: 0.4rem 1rem;
-      border-radius: 8px;
-      width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-      transition: background 0.3s ease;
     }
 
-    .main-button:hover {
-      color: #fff;
-      background: #000000c3;
-    }
-
-    nav a {
-      color: #fff;
-      margin: 0 0.5rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .text-overlay,
-    .text-overlay2,
-    .text-overlay-bullets{
+    .nav-container {
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: "font", sans-serif;
-      letter-spacing: 1px;
-      background: transparent;
-      color: rgb(38, 7, 7);
-      text-align: center;
-      padding: 0.5rem;
-    }
-
-    .text-overlay {
-      top: 0%;
-      font-size: clamp(1.2rem, 4vw, 2.5rem);
-    }
-
-    .text-overlay2 {
-      top: 65%;
-      font-size: clamp(0.9rem, 3vw, 1.2rem);
-    }
-
-    .text-overlay-bullets {
-      top: 10%;
-      font-size: clamp(1.2rem, 4vw, 2.5rem);
-    }
-
-    .popup {
-      position: fixed;
-      bottom: -100%;
-      left: 50%;
-      transform: translateX(-50%);
-      transition: bottom 0.5s ease;
-    }
-    .popup img {
-      max-width: 90vw;
-      max-height: 90vh;
-      object-fit: contain;
-    }
-    .popup.show { bottom: 35%; }
-    .hidden { display: none; }
-
-    .square {
-      width: 300px;
-      height: 300px;
-      background: #333;
-      border: 4px solid #000;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-    .square img {
+      top: 5vw;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0px; 
+      padding-right: 1.8vw;
     }
 
-
-    .arrow-button2 {
-      position: absolute;
-      display: inline-block;
+    .nav-arrow {
+      background: none;
+      border: none;
       cursor: pointer;
-      z-index: 2;
+      padding: 0px;
+      width: 55%; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%; /* glow looks best radiating from a round shape */
+      transition: transform 0.2s ease;
+      box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.5); /* the glow itself */
     }
 
-    .arrow-button2 {
-      right: 20px;
-      top: 25%;
-      transform: translateY(-100%);
+    .nav-arrow img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.2s ease;
     }
 
-    .arrow-button2 img {
-      height: 200px;
-      filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    .nav-arrow--Eventos {
+      transform:translateY(-.4vw);
     }
 
-    .arrow-button2:hover { transform: translateY(-90%); }
-
-
-    .custom-bullets {
-      list-style: none;
-      padding-left: 0;
-      text-align: left;
+    .nav-arrow:hover img {
+      transform: scale(1.25);
     }
 
-    .custom-bullets li {
-      position: relative;
-      padding-left: 3rem;
-      margin-bottom: 0.6rem;
-      font-size: 1rem;
+    .nav-arrow--Archivo {
+      transform:translateY(-2.4vw);
     }
 
-    .custom-bullets li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 40px;
-      height: 40px;
-      background: url("images/bullet3.png") no-repeat center/contain;
-      transition: filter 0.3s ease;
+    .nav-arrow--Presskit {
+      transform:translateY(-2vw);
     }
 
-    .custom-bullets li:hover::before {
-      filter: brightness(0) saturate(100%) invert(77%) sepia(77%) saturate(1265%) hue-rotate(5deg) brightness(104%) contrast(101%);
-    }
-
-    .show .main-button { display: none; }
-
-    .custom-bullets a:hover {
-      color: #ffd700;
+    .nav-arrow--Olmoshop {
+      transform:translateY(-3.5vw);
     }
 
     footer {
-      background-color: #eee;
-      padding: 0.75rem;
-      font-size: 0.9em;
+      background: rgba(0,0,0,0.6);
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 1rem;
+      margin-top: auto; 
     }
-
-
 
   </style>
 </head>
 
-<body class="about-page">
-  <div class="wrapper">
-    <div class="image-container">
-      <div class="text-overlay">
-        Los Olmos no es una banda, es una experiencia
-      </div>
+<body class="home-page">
 
-      <nav class="text-overlay2" id="menu">
-        <button class="main-button">Aceptar</button>
-      </nav>
+  <div class="image-container">
+    <img src="images/tv_colores.png" alt="TV" />
+
+    <div class="nav-container">
+      <a class="nav-arrow nav-arrow--Eventos" href="tere copy.html" aria-label="Eventos">
+        <img src="images/600ppi/Eventos.png" alt="Eventos">
+      </a>
+
+      <a class="nav-arrow nav-arrow--Archivo" href="tere copy.html" aria-label="Archivo">
+        <img src="images/600ppi/Archivo.png" alt="Archivo">
+      </a>
+
+      <a class="nav-arrow nav-arrow--Presskit" href="nous copy.html" aria-label="Presskit">
+        <img src="images/600ppi/Presskit.png" alt="Presskit">
+      </a >
+
+      <a class="nav-arrow nav-arrow--Olmoshop" href="https://losolmos.bandcamp.com/track/santa-teresa" aria-label="Olmoshop">
+        <img src="images/600ppi/Olmoshop.png" alt="Olmoshop">
+      </a>
     </div>
+
   </div>
 
-
-
   <footer>
-    &copy; 2025 Los Olmos LLC. Todos los derechos reservados.
+    &copy; 2026 Los Olmos LLC. Todos los derechos reservados.
   </footer>
 
 </body>

@@ -31,11 +31,7 @@
     }
 
     .main-content {
-      flex: 1; /* takes remaining height between header/footer */
-      display: flex;
-      justify-content: center;
-      align-items: flex-end; /* push card toward bottom */
-      padding-bottom: 6rem; /* space above footer */
+padding: 120px 40px;
     }
 
     .bio-card {
@@ -109,6 +105,14 @@
       background: rgba(255,255,255,0.2);
     }
 
+    .press-kit {
+      width: 100%;
+      height: 100vh;
+      border: none;
+      transform: translate3d(0, 0, 0); /* improve performance */
+      will-change: transform; /* hint to browser for optimization */
+    }
+
 
     footer {
       background: rgba(0,0,0,0.6);
@@ -122,12 +126,8 @@
 </head>
 <body>
   <div class="main-content">
-    <div class="bio-card">
-      <h1>Los mejores del genero</h1>
-      <h2>classica / reggaeton / jazz / merengue / pop / urbano</h2>
-      <p>Nuestro conjunto interdisciplinario de artistas y gestores culturales propone eventos y productos diseñados desde una estetica eclectica y la amistad como eje etico para un publico en busqueda de experiencias insolitas. Brindamos servicios de producción tanto para nuestres miembres como para otres artistas que operan de manera independiente y buscan refuerzo en los distintos aspectos de su gesta, incluyendo produccion sonora y musical, diseño y administración de mercancia, documentacion audiovisual, manejo de negocios, mentoria profesional, y concepcion y logistica de eventos, entre otras tareas.</p>
-      <a class="menu-link" href="about2.html">Menu principal</a>
-    </div>
+    <iframe src="press-kit.pdf#toolbar=0&navpanes=0&diagonal=0" class="press-kit"></iframe>
+
   </div>
 
   <footer>
