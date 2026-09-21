@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presskit - Los Olmos</title>
+  <style>
+
+    @font-face {
+      font-family: "quest";
+      src: url("fonts/quest.otf") format("opentype");
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "quest", sans-serif;
+      background: linear-gradient(
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.1)
+        ),
+        url("images/Presskit_Background.png") center/cover no-repeat;
+      color: #fff;
+      display: flex;
+      flex-direction: column; /* stack elements vertically */
+      min-height: 150vh; /* ensures page scrolls */
+      margin: 0;
+    }
+
+    .main-content {
+      padding: 80px 40px;
+    }
+
+    .nav-container {
+      position: relative;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0px; 
+    }
+
+   .nav-arrow {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0px;
+      width: 55%; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-arrow img {
+      width: 25%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-arrow span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      
+      color: rgb(247, 246, 200);
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .nav-arrow:hover {
+      transform: scale(1.1);
+    }
+
+    .press-kit {
+      width: 100%;
+      height: 100vh;
+      border: none;
+      transform: translate3d(0, 0, 0); /* improve performance */
+      will-change: transform; /* hint to browser for optimization */
+    }
+
+
+    footer {
+      background: rgba(0,0,0,0.6);
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 1rem;
+      margin-top: auto; 
+    }
+
+  </style>
+</head>
+<body>
+
+ 
+
+  <div class="main-content">
+    <iframe src="press-kit.pdf#toolbar=0&navpanes=0&diagonal=0" class="press-kit"></iframe>
+  </div>
+
+  <div class="nav-container">
+    <a class="nav-arrow" href="index.html" aria-label="Menu">
+      <img src="images/tv_menu.png" alt="Menu">
+      <span>Menu</span>
+    </a>
+  </div>
+
+  <footer>
+    &copy; 2026 Los Olmos LLC. Todos los derechos reservados.
+  </footer>
+</body>
+
+</html>
+
+
+
+
